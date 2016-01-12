@@ -1,9 +1,7 @@
 package name.iiii.taobaodemo;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,14 +9,18 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import name.iiii.taobaodemo.fragment.CartFragment;
+import name.iiii.taobaodemo.fragment.DiscoverFragment;
+import name.iiii.taobaodemo.fragment.HomeFragment;
+import name.iiii.taobaodemo.fragment.HotFragment;
+import name.iiii.taobaodemo.fragment.UserFragment;
 
 public class MainActivity extends FragmentActivity implements OnClickListener {
 	private List<Fragment> mFragments;
