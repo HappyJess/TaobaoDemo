@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="#ffffff"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:id="@+id/tab_home"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/tab_home_img"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="#FFFFFF"
+            android:clickable="false"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_home" />
+
+        <TextView
+            android:id="@+id/tab_home_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="主页"
+            android:textColor="#A9B7B7"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tab_hot"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/tab_hot_img"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="#FFFFFF"
+            android:clickable="false"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_hot" />
+
+        <TextView
+            android:id="@+id/tab_hot_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="热卖"
+            android:textColor="#A9B7B7"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tab_discover"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/tab_discover_img"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="#FFFFFF"
+            android:clickable="false"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_discover" />
+
+        <TextView
+            android:id="@+id/tab_discover_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="分类"
+            android:textColor="#A9B7B7"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tab_cart"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/tab_cart_img"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="#FFFFFF"
+            android:clickable="false"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_cart" />
+
+        <TextView
+            android:id="@+id/tab_cart_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="购物车"
+            android:textColor="#A9B7B7"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tab_user"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/tab_user_img"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="#FFFFFF"
+            android:clickable="false"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_user" />
+
+        <TextView
+            android:id="@+id/tab_user_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的"
+            android:textColor="#A9B7B7"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+</LinearLayout>
