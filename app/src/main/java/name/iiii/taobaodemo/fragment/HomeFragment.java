@@ -93,15 +93,15 @@ public class HomeFragment extends Fragment {
 
         //初始化RecyclerView
         List<HomeCampaign> datas = new ArrayList<>(15);
-        HomeCampaign category = new HomeCampaign(1l,"热门活动",R.drawable.img_1,R.drawable.img_2,R.drawable.img_2);
+        HomeCampaign category = new HomeCampaign(1,"热门活动",R.drawable.img_1,R.drawable.img_2,R.drawable.img_2);
         datas.add(category);
-        category = new HomeCampaign(1l,"有利可图",R.drawable.img_1,R.drawable.img_2,R.drawable.img_2);
+        category = new HomeCampaign(2,"有利可图",R.drawable.img_1,R.drawable.img_2,R.drawable.img_2);
         datas.add(category);
-        category = new HomeCampaign(1l,"品牌街",R.drawable.img_1,R.drawable.img_2,R.drawable.img_2);
+        category = new HomeCampaign(3,"品牌街",R.drawable.img_1,R.drawable.img_2,R.drawable.img_2);
         datas.add(category);
-        category = new HomeCampaign(1l,"金融街",R.drawable.img_1,R.drawable.img_2,R.drawable.img_2);
+        category = new HomeCampaign(4,"金融街",R.drawable.img_1,R.drawable.img_2,R.drawable.img_2);
         datas.add(category);
-        category = new HomeCampaign(1l,"超值购",R.drawable.img_1,R.drawable.img_2,R.drawable.img_2);
+        category = new HomeCampaign(5,"超值购",R.drawable.img_1,R.drawable.img_2,R.drawable.img_2);
         datas.add(category);
 
         mAdapter = new HomeCampaignAdapter(datas);

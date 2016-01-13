@@ -3,11 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-    <TextView 
-        android:gravity="center"
-        android:layout_width="wrap_content"
+
+    <include layout="@layout/top" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_hot"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="这是hot页"/>
+        android:layout_marginTop="2dp">
+
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

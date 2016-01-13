@@ -16,7 +16,6 @@ public class Campaign implements Serializable {
     private String title;
     private String imgUrl;
 
-
     public Long getId() {
         return id;
     }

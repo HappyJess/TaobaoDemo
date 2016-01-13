@@ -21,18 +21,17 @@ public class HomeCampaignAdapter extends RecyclerView.Adapter<HomeCampaignAdapte
     private LayoutInflater mInflater;
     private List<HomeCampaign> mDatas;
 
-    public HomeCampaignAdapter(List<HomeCampaign> datas){
+    public HomeCampaignAdapter(List<HomeCampaign> datas) {
         mDatas = datas;
     }
-
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         mInflater = LayoutInflater.from(parent.getContext());
-        if (viewType == VIEW_TYPE_R){
-            return  new ViewHolder(mInflater.inflate(R.layout.template_home_cardview,parent,false));
+        if (viewType == VIEW_TYPE_R) {
+            return new ViewHolder(mInflater.inflate(R.layout.template_home_cardview, parent, false));
         }
-        return new ViewHolder(mInflater.inflate(R.layout.template_home_cardview2,parent,false));
+        return new ViewHolder(mInflater.inflate(R.layout.template_home_cardview2, parent, false));
 
     }
 
@@ -49,7 +48,7 @@ public class HomeCampaignAdapter extends RecyclerView.Adapter<HomeCampaignAdapte
     public int getItemViewType(int position) {
         if (position % 2 == 0) {
             return VIEW_TYPE_R;
-        }else {
+        } else {
             return VIEW_TYPE_L;
         }
     }
@@ -59,10 +58,11 @@ public class HomeCampaignAdapter extends RecyclerView.Adapter<HomeCampaignAdapte
         return mDatas.size();
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder {
         TextView textTitle;
-        ImageView cpOne,cpTwo,cpThree;
-        public ViewHolder(View itemView){
+        ImageView cpOne, cpTwo, cpThree;
+
+        public ViewHolder(View itemView) {
             super(itemView);
             textTitle = (TextView) itemView.findViewById(R.id.text_title);
             cpOne = (ImageView) itemView.findViewById(R.id.imgview_big);
@@ -70,6 +70,5 @@ public class HomeCampaignAdapter extends RecyclerView.Adapter<HomeCampaignAdapte
             cpThree = (ImageView) itemView.findViewById(R.id.imgview_small_bottom);
         }
     }
-
 
 }

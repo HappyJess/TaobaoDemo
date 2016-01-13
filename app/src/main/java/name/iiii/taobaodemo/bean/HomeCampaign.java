@@ -8,14 +8,10 @@ package name.iiii.taobaodemo.bean;
 
 import java.io.Serializable;
 
-/**
- * Copyright(c)2014 Guangzhou Onion Information Technology Co., Ltd.
- * http://www.cniao5.com
- */
 public class HomeCampaign implements Serializable {
 
 
-    private Long id;
+    private int id;
     private String title;
     private int cpOne;
     private int cpTwo;
@@ -24,7 +20,7 @@ public class HomeCampaign implements Serializable {
     public HomeCampaign() {
     }
 
-    public HomeCampaign(Long id, String title, int cpOne, int cpTwo, int cpThree) {
+    public HomeCampaign(int id, String title, int cpOne, int cpTwo, int cpThree) {
         this.id = id;
         this.title = title;
         this.cpOne = cpOne;
@@ -57,11 +53,11 @@ public class HomeCampaign implements Serializable {
     }
 
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

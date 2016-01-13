@@ -1,4 +1,4 @@
-package name.iiii.taobaodemo;
+package name.iiii.taobaodemo.activity;
 
 import java.util.List;
 
@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import name.iiii.taobaodemo.R;
 import name.iiii.taobaodemo.fragment.CartFragment;
 import name.iiii.taobaodemo.fragment.DiscoverFragment;
 import name.iiii.taobaodemo.fragment.HomeFragment;

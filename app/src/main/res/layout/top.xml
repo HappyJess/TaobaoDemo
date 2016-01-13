@@ -6,7 +6,8 @@
     android:gravity="center"
     android:orientation="horizontal" >
 
-    <TextView 
+    <TextView
+        android:id="@+id/top_title"
         android:layout_height="30dp"
         android:layout_width="wrap_content"
         android:text="首页"
