@@ -32,13 +32,13 @@ public class HotFragment extends Fragment {
         initViews();
         initEvents();
         return mview;
+
     }
 
     private void initViews() {
         top_title = (TextView) mview.findViewById(R.id.top_title);
         top_title.setText("热卖商品");
         mRecyclerView = (RecyclerView) mview.findViewById(R.id.recyclerview_hot);
-
 
     }
 
