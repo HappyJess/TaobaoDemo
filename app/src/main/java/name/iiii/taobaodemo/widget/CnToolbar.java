@@ -40,20 +40,17 @@ public class CnToolbar extends Toolbar {
     public CnToolbar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-
         initView();
 
         if(attrs !=null) {
             final TintTypedArray a = TintTypedArray.obtainStyledAttributes(getContext(), attrs,
                     R.styleable.CnToolBar, defStyleAttr, 0);
 
-
             final Drawable rightIcon = a.getDrawable(R.styleable.CnToolBar_rightButtonIcon);
             if (rightIcon != null) {
                 //setNavigationIcon(navIcon);
                 setRightButtonIcon(rightIcon);
             }
-
 
             CharSequence rightButtonText = a.getText(R.styleable.CnToolBar_rightButtonText);
             if(rightButtonText !=null){

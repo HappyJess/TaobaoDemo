@@ -8,10 +8,12 @@ package name.iiii.taobaodemo.bean;
 
 import java.io.Serializable;
 
-public class HomeCampaign implements Serializable {
+import cn.bmob.v3.BmobObject;
+
+public class HomeCampaign extends BmobObject implements Serializable  {
 
 
-    private int id;
+    private Integer id;
     private String title;
     private int cpOne;
     private int cpTwo;

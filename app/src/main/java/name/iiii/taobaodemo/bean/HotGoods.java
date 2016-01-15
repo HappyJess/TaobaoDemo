@@ -2,11 +2,14 @@ package name.iiii.taobaodemo.bean;
 
 import java.io.Serializable;
 
+import cn.bmob.v3.BmobObject;
+
 /**
  * Created by Administrator on 2016/1/13.
  */
-public class HotGoods implements Serializable {
-    private int id;
+
+public class HotGoods  extends BmobObject implements Serializable {
+    private Integer id;
     private String title;
     private Double price;
     private int cpOne;

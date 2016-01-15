@@ -3,6 +3,7 @@ package name.iiii.taobaodemo.activity;
 import java.util.List;
 
 import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -16,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import cn.bmob.v3.Bmob;
 import name.iiii.taobaodemo.R;
 import name.iiii.taobaodemo.fragment.CartFragment;
 import name.iiii.taobaodemo.fragment.DiscoverFragment;
@@ -40,6 +42,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		// 设定始终保持竖屏
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+		Bmob.initialize(this, "33258a0b5aa0dc428cd94cbb257941d5");
+
 		setContentView(R.layout.activity_main);
 
 		initViews();
@@ -90,6 +95,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		 * @Override public Fragment getItem(int arg0) { return
 		 * mFragments.get(arg0); } };
 		 */
+
+
+
 	}
 
 	private void initEvents() {

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +15,18 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.listener.FindCallback;
+import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.SaveListener;
 import name.iiii.taobaodemo.R;
 import name.iiii.taobaodemo.adapter.HomeCampaignAdapter;
+import name.iiii.taobaodemo.bean.BannerPic;
 import name.iiii.taobaodemo.bean.HomeCampaign;
 
 public class HomeFragment extends Fragment {
@@ -27,6 +35,7 @@ public class HomeFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private HomeCampaignAdapter mAdapter;
+
 
     //private PagerIndicator custom_indicator;
     ArrayList<View> viewContainter = new ArrayList<View>();
@@ -48,44 +57,61 @@ public class HomeFragment extends Fragment {
         sliderShow = (SliderLayout) mview.findViewById(R.id.slider);
         //custom_indicator = (PagerIndicator) mview.findViewById(R.id.custom_indicator);
         mRecyclerView = (RecyclerView) mview.findViewById(R.id.recyclerview);
+
+
+    }
+
+    /**
+     * 查询数据
+     */
+    public void queryBannerData() {
+        BmobQuery<BannerPic> query = new BmobQuery<BannerPic>();
+        //查询playerName叫“比目”的数据
+        //query.addWhereEqualTo("playerName", "比目");
+        //返回50条数据，如果不加上这条语句，默认返回10条数据
+        query.setLimit(10);
+        //执行查询方法
+        query.findObjects(mview.getContext(), new FindListener<BannerPic>() {
+
+            @Override
+            public void onSuccess(List<BannerPic> object) {
+                //Toast.makeText(HomeFragment.this.getActivity(), "查询成功：共" + object.size() + "条数据。", Toast.LENGTH_SHORT).show();
+                for (BannerPic bannerPic : object) {
+                    bannerPic.getObjectId();
+                    bannerPic.getImgUrl();
+                    bannerPic.getKindId();
+                    bannerPic.getRedirectUrl();
+                    bannerPic.getTextStr();
+
+                    TextSliderView textSliderView = new TextSliderView(HomeFragment.this.getActivity());
+                    textSliderView
+                            .image(bannerPic.getImgUrl())
+                            .setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
+                                @Override
+                                public void onSliderClick(BaseSliderView slider) {
+                                    Toast.makeText(HomeFragment.this.getActivity(), "不知道", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                    sliderShow.addSlider(textSliderView);
+                }
+
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                Toast.makeText(HomeFragment.this.getActivity(), "查询失败", Toast.LENGTH_SHORT).show();
+            }
+
+
+        });
     }
 
     private void initEvents() {
-        TextSliderView textSliderView1 = new TextSliderView(this.getActivity());
-        textSliderView1
-                .image("http://pic.58pic.com/58pic/16/34/57/33X58PIC4up_1024.jpg")
-                .setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
-                    @Override
-                    public void onSliderClick(BaseSliderView slider) {
-                        Toast.makeText(HomeFragment.this.getActivity(), "第一屏", Toast.LENGTH_SHORT).show();
-                    }
-                });
 
-        TextSliderView textSliderView2 = new TextSliderView(this.getActivity());
-        textSliderView2
-                .image("http://pic.58pic.com/58pic/12/60/40/49W58PICgrS.jpg")
-                .setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
-                    @Override
-                    public void onSliderClick(BaseSliderView slider) {
-                        Toast.makeText(HomeFragment.this.getActivity(), "第二屏", Toast.LENGTH_SHORT).show();
-                    }
-                });
+        queryBannerData();
 
-        TextSliderView textSliderView3 = new TextSliderView(this.getActivity());
-        textSliderView3
-                .image("http://images.boomsbeat.com/data/images/full/19640/game-of-thrones-season-4-jpg.jpg")
-                .setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
-                    @Override
-                    public void onSliderClick(BaseSliderView slider) {
-                        Toast.makeText(HomeFragment.this.getActivity(), "第三屏", Toast.LENGTH_SHORT).show();
-                    }
-                });
 
-        sliderShow.addSlider(textSliderView1);
-        sliderShow.addSlider(textSliderView2);
-        sliderShow.addSlider(textSliderView3);
-
-        //sliderShow.setCustomIndicator(custom_indicator);
         sliderShow.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         sliderShow.setCustomAnimation(new test.DescriptionAnimation());
         sliderShow.setPresetTransformer(SliderLayout.Transformer.Default);
@@ -93,15 +119,15 @@ public class HomeFragment extends Fragment {
 
         //初始化RecyclerView
         List<HomeCampaign> datas = new ArrayList<>(15);
-        HomeCampaign category = new HomeCampaign(1,"热门活动",R.drawable.img_1,R.drawable.img_2,R.drawable.img_2);
+        HomeCampaign category = new HomeCampaign(1, "热门活动", R.drawable.img_1, R.drawable.img_2, R.drawable.img_2);
         datas.add(category);
-        category = new HomeCampaign(2,"有利可图",R.drawable.img_1,R.drawable.img_2,R.drawable.img_2);
+        category = new HomeCampaign(2, "有利可图", R.drawable.img_1, R.drawable.img_2, R.drawable.img_2);
         datas.add(category);
-        category = new HomeCampaign(3,"品牌街",R.drawable.img_1,R.drawable.img_2,R.drawable.img_2);
+        category = new HomeCampaign(3, "品牌街", R.drawable.img_1, R.drawable.img_2, R.drawable.img_2);
         datas.add(category);
-        category = new HomeCampaign(4,"金融街",R.drawable.img_1,R.drawable.img_2,R.drawable.img_2);
+        category = new HomeCampaign(4, "金融街", R.drawable.img_1, R.drawable.img_2, R.drawable.img_2);
         datas.add(category);
-        category = new HomeCampaign(5,"超值购",R.drawable.img_1,R.drawable.img_2,R.drawable.img_2);
+        category = new HomeCampaign(5, "超值购", R.drawable.img_1, R.drawable.img_2, R.drawable.img_2);
         datas.add(category);
 
         mAdapter = new HomeCampaignAdapter(datas);
